@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="src/model/Book.js"></script>
+    <script src="src/ctrl/initialize.js"></script>
+    <script src="src/view/listBooks.js"></script>
+    <script>
+     window.addEventListener( "load", pl.view.listBooks.setupUserInterface);
+    </script>
+  </head>
+  <body>
+    <h1>Public Library</h1>
+      <table id="books" class="table table-hover table-bordered">
+        <thead><tr><th>ISBN</th><th>Title</th><th>Author</th><th>Year</th><th>Options</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    <div class="btn-group menu">
+      <button type="button" class="btn btn-default" name="create" id="create"><span class="glyphicon glyphicon-plus"></span></button>
+      <button type="button" class="btn btn-default btn-danger" onclick="Book.clearData()"><span class="glyphicon glyphicon-trash"></span></button>
+      <button type="button" class="btn btn-default btn-warning" onclick="Book.createTestData()">Create test data</button>
+    </div>
+    <!-- The Update Modal -->
+    <div id="updateModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="row">
+          <div id="close1" class"col-sm-12">&times;</div>
+        </div>
+        <form id="Book1">
+          <div class="form-group">
+            <label class="control-label">ISBN:</label>
+            <input name="isbn" class="form-control" readonly="readonly" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">Title:</label>
+            <input name="title" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">Author:</label>
+            <input name="author" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">Year:</label>
+            <input name="year" class="form-control" pattern="[0-9]{4}"/>
+          </div>
+          <input type="submit" class="btn btn-primary" name="commit" onClick="zapisz ()" value="Save Changes" />
+        </form>
+      </div>
+    </div>
+    <!-- The Create Modal -->
+    <div id="createModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="row">
+          <div id="close2" class"col-sm-12">&times;</div>
+        </div>
+        <form id="Book2">
+          <div class="form-group">
+            <label class="control-label">ISBN:</label>
+            <input name="isbn" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">Title:</label>
+            <input name="title" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">Author:</label>
+            <input name="author" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">Year:</label>
+            <input name="year" class="form-control" pattern="[0-9]{4}" />
+          </div>
+          <button type="button" class="btn btn-primary" name="commit" onClick="zapisz ()">Save</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
