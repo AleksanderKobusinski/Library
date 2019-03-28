@@ -4,7 +4,7 @@ function buttonDelete (key){
   window.location.reload(true);
 }
 
-function change (numer){
+function putChanges (numer){
   var modal = document.getElementById('updateModal'),
   formEl = document.forms['Book1'];
   modal.style.display = "block";
@@ -15,7 +15,7 @@ function change (numer){
   formEl.year.value = book.year;
 }
 
-function change2 () {
+function saveChanges () {
   var modal = document.getElementById('updateModal'),
   formEl = document.forms['Book1'];
   if (formEl.year.value > "2019") {
@@ -69,7 +69,7 @@ pl.view.listBooks = {
      row.insertCell(-1).textContent = Book.instances[key].title;
      row.insertCell(-1).textContent = Book.instances[key].author;
      row.insertCell(-1).textContent = Book.instances[key].year;
-     row.insertCell(-1).innerHTML = '<div class="btn-group"><button type="button" name="'+ key +'" class="update btn btn-xs btn-default" onclick="change (name)"><span class="glyphicon glyphicon-cog"></span></button><button type="button" name="'+ key +'" class="delete btn btn-xs btn-danger" onclick="buttonDelete (name)"><span class="glyphicon glyphicon-remove"></span></button></div>';
+     row.insertCell(-1).innerHTML = '<div class="btn-group"><button type="button" name="'+ key +'" class="update btn btn-xs btn-default" onclick="putChanges (name)"><span class="glyphicon glyphicon-cog"></span></button><button type="button" name="'+ key +'" class="delete btn btn-xs btn-danger" onclick="buttonDelete (name)"><span class="glyphicon glyphicon-remove"></span></button></div>';
    }
 // Get the <span> element that closes the modal
 var span1 = document.getElementById("close1");
